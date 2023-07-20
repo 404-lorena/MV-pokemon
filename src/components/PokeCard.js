@@ -1,15 +1,10 @@
 import React from "react";
-import UseFetch from "./UseFetch";
 
-export const PokeCard = ({url}) => {
+export const PokeCard = () => {
 
-    const pokemonState = UseFetch(url)
-    const {loading,data}=pokemonState
 
     return(
-        <div>
-            {loading ? <h1>Loading</h1> : <div className="cards"></div>}
-
-        </div>
+        <div></div>
+  
     )
 }
