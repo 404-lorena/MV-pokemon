@@ -1,12 +1,13 @@
-import React  from 'react';
+import React, { Component } from 'react';
 
-const Search = () => {
+class Search extends Component {
+    render() {
         return (
             <div>
-                <input type="text"/> 
+                 <input type="text"/> 
             </div>
-        )
+        );
     }
-
+}
 
 export default Search;

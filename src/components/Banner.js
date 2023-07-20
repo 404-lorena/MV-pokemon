@@ -1,12 +1,13 @@
-import React  from 'react';
+import React, { Component } from 'react';
 
-const Banner = () => {
+class Banner extends Component {
+    render() {
         return (
             <div>
-                <h1>Top menu bar</h1>     
+                <h2>Banner</h2>
             </div>
-        )
+        );
     }
-
+}
 
 export default Banner;
