@@ -18,6 +18,16 @@ const Pokemon = () => {
             const data = await res.json()
 
             console.log(data)
+
+            function createPokemonObject(result){
+                result.forEach( async(pokemon) => {
+                    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+                    const data = await res.json()
+
+                    console.log(data)
+                })
+            }
+            createPokemonObject(data.results)
         }
 
         // SLAP ON DOM
