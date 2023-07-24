@@ -13,24 +13,22 @@ const Pokemon = () => {
  // State to store api response data
  const [allPokemon, setAllPokemon] = useState([])
 
-const getAllPokemon = async () => {
-    //FETCH
-    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-    const data = await res.json()
-    console.log(data)
+useEffect(() => {
+    const getPokemon = async () => {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2')
+        const listaPokemones = await response.json()
+        const {results} = listaPokemones
 
-    data.results.forEach(async(pokemon) => {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-        const data = await res.json()
-        // arr.push(data)
-    })
-    setAllPokemon(data)
-}
-    
-    //SLAP ON DOM
-    useEffect(() => {
-        getAllPokemon()
-    },[])
+        const pokemones = results.map( async (pokemon) =>  {
+            const response = await fetch(pokemon.url)
+            const poke = await response.json()
+
+            console.log(poke)
+        })
+        setAllPokemon(results)
+    }
+    getPokemon()
+},[])
 
         return (
             <div className="container">
@@ -38,7 +36,8 @@ const getAllPokemon = async () => {
                 <div className="container">
                     <Stack direction="horizontal" gap={2} className="all-pokemon">
                         {allPokemon.map((pokemon) => 
-                            <PokeCard key={pokemon.id} id={pokemon.id}/>
+                            <PokeCard key={pokemon.id} id={pokemon.id} name={pokemon.name} image={pokemon.sprites.other
+                            }/>
                         )}
                     </Stack>
                 </div>
