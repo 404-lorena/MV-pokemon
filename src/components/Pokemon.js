@@ -17,14 +17,14 @@ const getAllPokemon = async () => {
     //FETCH
     const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     const data = await res.json()
-    const arr = []
+    console.log(data)
 
     data.results.forEach(async(pokemon) => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
         const data = await res.json()
-        arr.push(data)
+        // arr.push(data)
     })
-    setAllPokemon(arr)
+    setAllPokemon(data)
 }
     
     //SLAP ON DOM
