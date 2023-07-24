@@ -5,17 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 
                         // props ill want to pass down
-export const PokeCard = ({id, name, image, ability}) => {
-
-
+export const PokeCard = ({id, name, image}) => {
     return(
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img 
+                variant="top" 
+                src={image}
+                alt={name}/>
             <Card.Body>
-                <Card.Title> Pokemon Name </Card.Title>
-                <Card.Text>Ability:</Card.Text>
-                <Card.Text>Level:</Card.Text>
-
+                <Card.Title> {name}</Card.Title>
+                <Card.Text>Number: {id}</Card.Text>
             </Card.Body>
            
         </Card>
