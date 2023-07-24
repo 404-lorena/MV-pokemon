@@ -23,12 +23,16 @@ useEffect(() => {
             const response = await fetch(pokemon.url)
             const poke = await response.json()
 
-            console.log(poke)
+            return {
+                id: poke.id,
+                name: poke.name,
+                img: poke.sprites.other.dream_world.front_default
+            }
         })
-        setAllPokemon(results)
+        setAllPokemon(await Promise.all(pokemones))
     }
     getPokemon()
-},[])
+}, [])
 
         return (
             <div className="container">
@@ -36,8 +40,8 @@ useEffect(() => {
                 <div className="container">
                     <Stack direction="horizontal" gap={2} className="all-pokemon">
                         {allPokemon.map((pokemon) => 
-                            <PokeCard key={pokemon.id} id={pokemon.id} name={pokemon.name} image={pokemon.sprites.other
-                            }/>
+                            <PokeCard key={pokemon.id} id={pokemon.id} name={pokemon.name} img={pokemon.img}
+                            />
                         )}
                     </Stack>
                 </div>
