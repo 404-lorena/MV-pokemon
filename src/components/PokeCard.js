@@ -7,12 +7,13 @@ import Card from 'react-bootstrap/Card';
                         // props ill want to pass down
 export const PokeCard = ({id, name, img}) => {
     return(
-        <Card style={{ width: '18rem' }}>
+        <Card className="card col" style={{ width: '18rem' }} >
             <Card.Img 
-                variant="top" 
                 src={img}
-                alt={name}/>
-            <Card.Body>
+                alt={name}
+                style={{ width: '5rem' }}
+                className="card-img-top"/>
+            <Card.Body className="card-body">
                 <Card.Title> Name: {name}</Card.Title>
                 <Card.Text>Number: {id}</Card.Text>
             </Card.Body>

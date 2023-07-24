@@ -15,7 +15,7 @@ const Pokemon = () => {
 
 useEffect(() => {
     const getPokemon = async () => {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2')
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
         const listaPokemones = await response.json()
         const {results} = listaPokemones
 
@@ -38,9 +38,14 @@ useEffect(() => {
             <div className="container">
                 <h1>Gotta catch 'em all!</h1> 
                 <div className="container">
-                    <Stack direction="horizontal" gap={2} className="all-pokemon">
+                    <Stack direction="horizontal" gap={2} className="row row-cols-1 row-cols-md-2 g-4">
                         {allPokemon.map((pokemon) => 
-                            <PokeCard key={pokemon.id} id={pokemon.id} name={pokemon.name} img={pokemon.img}
+                            <PokeCard 
+                                
+                                key={pokemon.id} 
+                                id={pokemon.id} 
+                                name={pokemon.name} 
+                                img={pokemon.img}
                             />
                         )}
                     </Stack>
