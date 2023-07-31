@@ -3,6 +3,7 @@ import React from "react";
 // CSS 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
                         // props ill want to pass down
 export const PokeCard = ({id, name, img}) => {
@@ -16,6 +17,7 @@ export const PokeCard = ({id, name, img}) => {
             <Card.Body className="card-body">
                 <Card.Title> Name: {name}</Card.Title>
                 <Card.Text>Number: {id}</Card.Text>
+                <Button variant="success">Add</Button>
             </Card.Body>
            
         </Card>
